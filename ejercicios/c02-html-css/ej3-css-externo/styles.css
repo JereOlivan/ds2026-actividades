@@ -1,4 +1,3 @@
-/* Selector de etiqueta (body) */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
@@ -8,21 +7,17 @@ body {
     line-height: 1.6;
 }
 
-/* Selector de clase (la vamos a usar para los títulos) */
 .titulo-principal {
-    color: #005a8d; /* Un azul tipo UTN */
+    color: #005a8d; 
     text-transform: uppercase;
     border-bottom: 2px solid #005a8d;
     padding-bottom: 10px;
 }
-
-/* Otro selector de etiqueta para los links */
 a {
     color: #d32f2f;
     text-decoration: none;
     font-weight: bold;
 }
-
 a:hover {
     text-decoration: underline;
 }
