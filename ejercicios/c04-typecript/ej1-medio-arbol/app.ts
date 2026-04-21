@@ -3,7 +3,7 @@ const input = document.getElementById('inputAltura') as HTMLInputElement;
 const boton = document.getElementById('btnGenerar') as HTMLButtonElement;
 const display = document.getElementById('resultadoArbol') as HTMLPreElement;
 
-const generarAsteriscos = (n: number): string => {
+const generarAsteriscos = (n: string): string => {
     let asteriscos: string = "";
     for (let i = 0; i < n; i++) {
         asteriscos += "*";
