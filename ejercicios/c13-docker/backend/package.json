@@ -1,0 +1,7 @@
+{
+  "name": "backend-previa",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "echo 'Backend mock corriendo...' && node -e 'setInterval(() => {}, 1000)'"
+  }
+}
