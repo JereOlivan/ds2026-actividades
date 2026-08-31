@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:3000
+
+### Listar todos los libros
+GET {{baseUrl}}/api/libros
+
+### Listar solo libros disponibles
+GET {{baseUrl}}/api/libros?disponible=true
+
+### Ver libro por ID
+GET {{baseUrl}}/api/libros/1
+
+### Ver libro inexistente (404)
+GET {{baseUrl}}/api/libros/999
+
+### Crear libro
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Clean Code",
+  "autor": "Robert C. Martin",
+  "precio": 38000,
+  "imagen": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+  "disponible": true
+}
+
+### Listar autores
+GET {{baseUrl}}/api/autores
+
+### Ver autor por ID
+GET {{baseUrl}}/api/autores/1
+
+### Ver autor inexistente (404)
+GET {{baseUrl}}/api/autores/999
+
+### Crear autor
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Julio Cortázar",
+  "nacionalidad": "Argentina"
+}
