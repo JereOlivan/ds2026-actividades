@@ -1,0 +1,72 @@
+@baseUrl = http://localhost:3000
+
+### Listar todos los libros con autor incluido (200)
+GET {{baseUrl}}/api/libros
+
+### Listar solo disponibles (200)
+GET {{baseUrl}}/api/libros?disponible=true
+
+### Ver detalle de un libro con autor y categorías (200)
+GET {{baseUrl}}/api/libros/1
+
+### 404 libro no existe
+GET {{baseUrl}}/api/libros/9999
+
+### 400 ID inválido (string en vez de número)
+GET {{baseUrl}}/api/libros/abc
+
+### Crear libro correcto (201)
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Ficciones",
+  "precio": 8500,
+  "imagen": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c",
+  "disponible": true,
+  "autorId": 1
+}
+
+### 400 sin título
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "precio": 5000,
+  "imagen": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c",
+  "autorId": 1
+}
+
+### 409 autor inexistente (violación de FK P2003)
+POST {{baseUrl}}/api/libros
+Content-Type: application/json
+
+{
+  "titulo": "Huérfano",
+  "precio": 5000,
+  "imagen": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c",
+  "autorId": 9999
+}
+
+### Listar autores (200)
+GET {{baseUrl}}/api/autores
+
+### 409 autor con nombre duplicado (violación @unique P2002)
+POST {{baseUrl}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Julio Cortázar",
+  "nacionalidad": "Argentina"
+}
+
+### 409 borrar autor con libros asociados (onDelete: Restrict P2003)
+DELETE {{baseUrl}}/api/autores/1
+
+### 404 actualizar libro que no existe (P2025)
+PUT {{baseUrl}}/api/libros/9999
+Content-Type: application/json
+
+{
+  "precio": 12000
+}
